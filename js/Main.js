@@ -1,5 +1,5 @@
 // product constructor 
-function Land (name, set, image, price) {
+function Card (name, set, image, price) {
 	this.name  = name
 	this.set = set
 	this.image = image
@@ -9,22 +9,22 @@ function Land (name, set, image, price) {
 //create vars, using the format above
 
 
-var plains = new Land ("Plains", "HOU", "img/plains.jpg", "$3.00")
-var island = new Land ("Island", "HOU", "img/island.jpg", "$3.00")
-var swamp = new Land ("Swamp", "HOU", "img/swamp.jpg", "$3.00")
-var mountain = new Land ("Mountain", "HOU", "img/mountain.jpg", "$3.00")
-var forest = new Land ("Forest", "HOU", "img/forest.jpg", "$3.00")
+var plains = new Card ("Plains", "HOU", "img/plains.jpg", "$3.00")
+var island = new Card ("Island", "HOU", "img/island.jpg", "$3.00")
+var swamp = new Card ("Swamp", "HOU", "img/swamp.jpg", "$3.00")
+var mountain = new Card ("Mountain", "HOU", "img/mountain.jpg", "$3.00")
+var forest = new Card ("Forest", "HOU", "img/forest.jpg", "$3.00")
 
 
 // create an array to add products to
-var landArray = new Array
+var cardArray = new Array
 
 // add products to array of products
-landArray.push(plains, island, swamp, mountain, forest)
+cardArray.push(plains, island, swamp, mountain, forest)
 
 
 // loop through products array
-for(var i = 0; i < landArray.length; i++) {
+for(var i = 0; i < cardArray.length; i++) {
 	// create new elements for each product
 	var newItem  = document.createElement("div")
 	var newDiv   = document.createElement("div")
@@ -35,19 +35,19 @@ for(var i = 0; i < landArray.length; i++) {
 	var image    = document.createElement("img")
 
 	// create text for new elements
-	var tName   = document.createTextNode(landArray[i].name)
-	var tSet   = document.createTextNode("Set: " + landArray[i].set)
-	var tPrice  = document.createTextNode("Price: " + landArray[i].price)
+	var tName   = document.createTextNode(cardArray[i].name)
+	var tSet   = document.createTextNode("Set: " + cardArray[i].set)
+	var tPrice  = document.createTextNode("Price: " + cardArray[i].price)
 	var tButton = document.createTextNode("Buy Now!")
 
 	// update source attribute
-	image.src = landArray[i].image
+	image.src = cardArray[i].image
 
 	// update class attributes
 	image.className = "img-responsive"
 	btn.className = "btn btn-primary btn-lg"
-	newItem.className = "col-sm-6"
-	newDiv.className = "lands landName" + [i] + "thumbnail"
+	newItem.className = "col-sm-4"
+	newDiv.className = "cards cardName" + [i] + "thumbnail"
 
 	
 	// add text to elements
@@ -67,6 +67,25 @@ for(var i = 0; i < landArray.length; i++) {
 	newItem.appendChild(newDiv)
 
 	// add new item to the element with id="lands"
-	document.getElementById("lands").appendChild(newItem)
+	document.getElementById("cards").appendChild(newItem)
 }
+
+
+
+
+function newProduct() {
+	// Create a new empty array variable
+	var newItemArray = [];
+	// Grab all of the values from the form fields
+	var itemName = document.getElementById("itemName").value;
+	var itemImage = document.getElementById("itemImage").value;
+	var itemImageAvail = (itemImage !== '') ? itemImage : "img/"
+	var itemSet = document.getElementById("itemSet").value;
+	var itemPrice = document.getElementById("itemPrice").value;
+
+	var newProduct = new Card(itemName, itemImage, itemSet, itemPrice);
+
+	newItemArray.push(newProduct)
+	cardArray(newItemArray);
+	}
 
