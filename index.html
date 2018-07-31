@@ -24,14 +24,17 @@
 
 		<!-- product catalog here -->
 			<div class="container">	
-				<div class= "row animated slideInLeft" id="cards"></div>
+				<h1>Card Inventory</h1>
+					<button><a class="jump" href="#addItem">Jump to Add New Item Section</a></button>
+				<div class= "row animated slideInDown" id="cards"></div>
 			</div>
+
 
 		<!-- New Product Section -->
 
 		<div id="addItem" class="container container-fluid">
 		<h2>Add Inventory</h2>
-		<div class="row">
+			<div class="row">
 			<div class="col-3">
 				<label>Name</label>
 				<input type="text" id="itemName" maxlength="20">
@@ -49,8 +52,9 @@
 				<input type="text" id="itemPrice" maxlength="5">
 			</div>
 			<div class= "col-12">
-				<button id="submit" type="button" onclick="newProduct()">Submit</button>
+				<button id="submit" type="button" onclick="newItem()">Submit</button>
 			</div>
+		</div>
 		</div>
 
 

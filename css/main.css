@@ -1,8 +1,18 @@
 body {
 	text-align:center;
+	background-color: #654321
 }
 
 
-.cards {
-	margin:20px 0;
+.newDiv {
+	width: 1%;
+	border: 1px solid #7F6E7F;
+	border-radius: 8px;
+	background-color: #EDEBD7;
+	display: inline-block;
+}
+
+
+#addItem {
+	background-color: red;
 }
